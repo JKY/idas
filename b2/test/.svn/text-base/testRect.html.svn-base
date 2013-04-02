@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bar chart</title>
+<script type="text/javascript" src="../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../backbone.js"></script>
+<script type="text/javascript" src="../b2.js"></script>
+<script type="text/javascript" src="../b2.evt.js"></script>
+<script type="text/javascript" src="../b2.graphics.js"></script>
+<script type="text/javascript" src="../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../../../plugins/bar/b2.bar.js"></script>
+<script type="text/javascript" src="../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+        var opt = {
+                container:"wrapper1",
+                "type":"Bar",
+                width: 100,
+                height: 100,
+                margin: [0,0,0,0],
+                canvas:{ platform:"Fl", param:{url:"../canvas/fl/B2Canvas.swf"}}
+		};
+        
+        this.canvas = document.createElement('div');
+	    $("#wrapper1").append(this.canvas);
+        $(this.canvas).css({
+            position: 'absolute',
+            width: 100,
+            height: 100,
+            left:0,
+            top:0
+        });
+        window.g = new B2.Graphics(opt,this.canvas);
+//////test rect
+// 		for(var i = 0; i<100; i++){
+// 			g.rect(Math.random()*1000, Math.random()*1000, 10, 10, "ff0000", {alpha:0.5,fill:true,thick:1});
+// 		};
+    };
+function resize(){
+    var length = window.g.measureText($("#inp").val(),10);
+	console.log(length);
+}
+</script>
+</head>
+<body style="background-color:#fff">
+	<div style="margin:100px;float:left;width:100%">
+        <div id="wrapper1">
+           
+        </div>
+    </div>
+    <div style="float:left;width:100%"><input type="button" value="resize" onclick="resize()"/></div>
+    <input id="inp" type="text" value=""/>
+</body>
+</html>

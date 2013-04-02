@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test</title>
+<script type="text/javascript" src="../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../b2.js"></script>
+<script type="text/javascript" src="../b2.graphics.js"></script>
+<script type="text/javascript" src="../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../b2.chart.js"></script>
+
+
+
+<script type="text/javascript" src="../b2.func.js"></script>
+<script type="text/javascript">
+	var options = {
+			  container:"testchart",
+			  type:"Line",
+			  width:800,
+			  height:400,
+			  platform:{canvas:"Fl",swf:"../canvas/fl/B2Canvas.swf"}
+			};
+	
+	var g = new window.B2.Graphics( options );
+	g.screen_shot("/");
+</script>
+</head>
+<body>
+	<div id="testchart"></div>
+</body>
+</html>

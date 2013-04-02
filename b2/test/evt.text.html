@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test</title>
+<script type="text/javascript" src="../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../../js/lib/underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../b2.js"></script>
+<script type="text/javascript" src="../b2.common.js"></script>
+<script type="text/javascript" src="../b2.graphics.js"></script>
+<script type="text/javascript" src="../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../charts/b2.line.js"></script>
+<script type="text/javascript" src="../charts/b2.stack.js"></script>
+<script type="text/javascript" src="../charts/b2.bar.js"></script>
+<script type="text/javascript" src="../charts/b2.pie.js"></script>
+<script type="text/javascript" src="../b2.func.js"></script>
+<style>
+#masker {
+    z-index:999;
+	position:absolute;
+	background-color:#ffffff;
+	filter:alpha(opacity=0);/*IE*/
+	opacity:0;/*Mozilla*/ 
+	left:0;
+	top:0;
+}
+</style>
+<script type="text/javascript">
+var options = {
+		  container:"fl",
+		  type:"Line",
+		  width:800,
+		  height:400,
+		  margin:[10,10,50,30],
+		  color:[0xff0000, 0x00ff00],
+		  platform:{canvas:"Fl",swf:"../canvas/fl/B2Canvas.swf"}
+		};
+
+var data = [
+            [200,300,"a"],
+            [10,100,"b"],
+            [300,700,"c"],
+            [100,200,"d"],
+            [300,250,"e"]
+            ];
+           
+B2.draw( options, data );
+
+function evt_c(e){
+	var e=e||window.event,
+	coordX=e.pageX||e.clientX+document.body.scrollLeft,
+	coordY=e.pageY||e.clientY+document.body.scrollTop;
+	
+	document.getElementById('field3').value = "(X:" + coordX + ", Y:" + coordY + ")";
+}
+
+function evt_mo(e){
+	var e=e||window.event,
+	coordX=e.pageX||e.clientX+document.body.scrollLeft,
+	coordY=e.pageY||e.clientY+document.body.scrollTop;
+	
+	document.getElementById('field1').value = coordX;
+	document.getElementById('field2').value = coordY;
+}
+</script>
+</head>
+<body style="background-color:#cccccc">
+	<div id = "chart">
+		<div id = "fl"></div>
+		<div id = "masker" onclick = evt_c(event) onmousemove = evt_mo(event)></div>
+	</div>
+	<br />
+	X: <input type="text" id="field1" value="">
+	<br />
+	Y: <input type="text" id="field2" value="">
+	<br />
+	Click Point: <input type="text" id="field3" value="">
+	<br /><br />
+	<script>
+		document.getElementById("masker").style.width = options.width + "px";
+		document.getElementById("masker").style.height = options.height + "px";
+	</script>
+</body>
+</html>

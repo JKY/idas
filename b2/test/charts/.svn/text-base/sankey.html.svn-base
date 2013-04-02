@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>senkey chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="../../b2.js"></script>
+<script type="text/javascript" src="../../b2.evt.js"></script>
+<script type="text/javascript" src="../../b2.graphics.js"></script>
+<script type="text/javascript" src="../../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../charts/b2.sankey.js"></script>
+<script type="text/javascript" src="../../charts/b2.legend.js"></script>
+<script type="text/javascript" src="../../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Sankey",
+			  	width: 1000,
+                height: 400, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:150,
+                	height:200
+                },
+			  	margin: [20,40,60,40],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            window.bar1 = new B2(options);
+            //after format 
+            window.data = {
+            			 segments: [{
+            				froms: [{
+            					name: 'a0',
+            					value: 150,
+            					color: '0000ff'
+            				}, {
+            					name: 'a1',
+            					value: 150,
+            					color: '00ff00'
+            				}],
+            			 	flows: [{
+            			 		from: 'a0',
+            			 		name: 'b0',
+            			 		value: 40
+            			 	}, {
+            			 		from: 'a0',
+            			 		name: 'b1',
+            			 		value: 60
+            			 	}, {
+            			 		from: 'a0',
+            			 		name: 'b2',
+            			 		value: 50
+            			 	}, {
+            			 		from: 'a1',
+            			 		name: 'b0',
+            			 		value: 30
+            			 	}, {
+            			 		from: 'a1',
+            			 		name: 'b1',
+            			 		value: 70
+            			 	}, {
+            			 		from: 'a1',
+            			 		name: 'b2',
+            			 		value: 50
+            			 	}]
+            			 }, {
+            				 froms: [{
+             					name: 'b0',
+             					value: 70,
+             					color: '012345'
+             				}, {
+             					name: 'b1',
+             					value: 130,
+             					color: '543210'
+             				}, {
+             					name: 'b2',
+             					value: 100,
+             					color: '456789'
+             				}],
+             			 	flows: [{
+             			 		from: 'b0',
+             			 		name: 'c0',
+             			 		value: 30
+             			 	}, {
+             			 		from: 'b0',
+             			 		name: 'c1',
+             			 		value: 40
+             			 	}, {
+             			 		from: 'b1',
+             			 		name: 'c0',
+             			 		value: 60
+             			 	}, {
+             			 		from: 'b1',
+             			 		name: 'c1',
+             			 		value: 70
+             			 	}, {
+             			 		from: 'b2',
+             			 		name: 'c0',
+             			 		value: 50
+             			 	}, {
+             			 		from: 'b2',
+             			 		name: 'c1',
+             			 		value: 50
+             			 	}]           
+            			 }],
+            			 legend:[{lable:"AA",color:"ff0000"},{lable:"BB",color:"0000ff"}]
+                       };
+            bar1.render(data);
+            
+    };
+     function resize(){
+            	bar1.size(500,200);
+                bar1.render(data);
+            };
+</script>
+</head>
+<body style="background-color:#fff">
+	<input type="button" value="resize" onclick="resize()"/>
+	<div>
+        <div id="wrapper1">
+           
+        </div>
+    </div>
+</body>
+</html>

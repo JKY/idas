@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>radar chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="../../b2.js"></script>
+<script type="text/javascript" src="../../b2.evt.js"></script>
+<script type="text/javascript" src="../../b2.graphics.js"></script>
+<script type="text/javascript" src="../../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../charts/b2.radar.js"></script>
+<script type="text/javascript" src="../../charts/b2.legend.js"></script>
+<script type="text/javascript" src="../../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Radar",
+			  	width: 800,
+                height: 400, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:150,
+                	height:200
+                },
+			  	margin: [20,40,60,40],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            window.radar = new B2(options);
+            //after format 
+            window.data = { axes:[
+									{name:"a",serials:[100,69,29]},
+									{name:"b",serials:[91,65,31]},
+									{name:"c",serials:[109,50,30]},
+									{name:"d",serials:[93,53,28]},
+									{name:"e",serials:[106,62,32]}
+                              ],
+            			 legend:[{label:"A",color:"ff0000"},{label:"B",color:"00ff00"},{label:"C",color:"0000ff"}]
+                       };
+            radar.render(data);
+            
+    };
+     function resize(){
+    	 radar.size(500,200);
+    	 radar.render(data);
+            };
+</script>
+</head>
+<body style="background-color:#fff">
+	<input type="button" value="resize" onclick="resize()"/>
+	<div>
+        <div id="wrapper1">
+           
+        </div>
+    </div>
+</body>
+</html>

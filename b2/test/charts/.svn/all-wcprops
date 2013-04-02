@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/idashboard/!svn/ver/704/trunk/app/js/lib/b2/test/charts
+END
+pie.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/pie.html
+END
+bar.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/idashboard/!svn/ver/704/trunk/app/js/lib/b2/test/charts/bar.html
+END
+stack.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/stack.html
+END
+line.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/line.html
+END
+radar.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/radar.html
+END
+coxcomb.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/coxcomb.html
+END
+stackbar.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/stackbar.html
+END
+sankey.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/idashboard/!svn/ver/611/trunk/app/js/lib/b2/test/charts/sankey.html
+END
+bubble.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/idashboard/!svn/ver/582/trunk/app/js/lib/b2/test/charts/bubble.html
+END

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bar chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript" src="idas_1.0.0.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Bar",
+			  	width: 800,
+                height: 400, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:150,
+                	height:200
+                },
+			  	margin: [20,40,60,40],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            window.bar1 = new B2(options);
+            //after format 
+            window.data = { groups:[
+            					{label:"A",bars:[{value:-10,label:"AAA",color:"ff0000"},{value:10,label:"AAA",color:"ff0000"}]},
+                                {label:"B",bars:[{value:20,label:"BVV",color:"00FF00"}]},
+                                {label:"C",bars:[{value:-30,label:"CDD",color:"0000FF"}]},
+                                {label:"D",bars:[{value:40,label:"DEE",color:"00FFFF"}]},
+                                {label:"E",bars:[{value:30,label:"EAA",color:"0FFFFF"}]},
+                                {label:"F",bars:[{value:-20,label:"FEE",color:"AFFFFF"}]},
+                                {label:"A",bars:[{value:-10,label:"AAA",color:"ff0000"},{value:10,label:"AAA",color:"ff0000"}]},
+                                {label:"B",bars:[{value:20,label:"BVV",color:"00FF00"}]},
+                                {label:"C",bars:[{value:-30,label:"CDD",color:"0000FF"}]},
+                                {label:"D",bars:[{value:40,label:"DEE",color:"00FFFF"}]},
+                                {label:"E",bars:[{value:30,label:"EAA",color:"0FFFFF"}]},
+                                {label:"F",bars:[{value:-20,label:"FEE",color:"AFFFFF"}]},
+                                {label:"A",bars:[{value:-10,label:"AAA",color:"ff0000"},{value:10,label:"AAA",color:"ff0000"}]},
+                                {label:"B",bars:[{value:20,label:"BVV",color:"00FF00"}]},
+                                {label:"C",bars:[{value:-30,label:"CDD",color:"0000FF"}]},
+                                {label:"D",bars:[{value:40,label:"DEE",color:"00FFFF"}]},
+                                {label:"E",bars:[{value:30,label:"EAA",color:"0FFFFF"}]},
+                                {label:"F",bars:[{value:-20,label:"FEE",color:"AFFFFF"}]},
+                                {label:"A",bars:[{value:-10,label:"AAA",color:"ff0000"},{value:10,label:"AAA",color:"ff0000"}]},
+                                {label:"B",bars:[{value:20,label:"BVV",color:"00FF00"}]},
+                                {label:"C",bars:[{value:-30,label:"CDD",color:"0000FF"}]},
+                                {label:"D",bars:[{value:40,label:"DEE",color:"00FFFF"}]},
+                                {label:"E",bars:[{value:30,label:"EAA",color:"0FFFFF"}]},
+                                {label:"F",bars:[{value:-20,label:"FEE",color:"AFFFFF"}]}
+                              ],
+                         xaxis:{label:"A", markers:[]},
+                         yaxis:{label:"B"},
+            			 legend:[{label:"AA",color:"ff0000"},{label:"AA",color:"0000ff"}]
+                       };
+            bar1.render(data);
+            
+    };
+     function resize(){
+            	bar1.size(500,200);
+                bar1.render(data);
+            };
+</script>
+</head>
+<body style="background-color:#fff">
+	<input type="button" value="resize" onclick="resize()"/>
+	<div>
+        <div id="wrapper1">
+           
+        </div>
+    </div>
+</body>
+</html>

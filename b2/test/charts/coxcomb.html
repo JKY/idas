@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coxcomb chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="../../b2.js"></script>
+<script type="text/javascript" src="../../b2.evt.js"></script>
+<script type="text/javascript" src="../../b2.graphics.js"></script>
+<script type="text/javascript" src="../../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../../canvas/html5/html5Canvas.js"></script>
+<script type="text/javascript" src="../../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../charts/b2.coxcomb.js"></script>
+<script type="text/javascript" src="../../charts/b2.legend.js"></script>
+<script type="text/javascript" src="../../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Coxcomb",
+			  	width: 500,
+                height: 500, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:200,
+                	height:400
+                },
+			  	margin: [0,0,0,0],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            var chart = new B2(options);
+            //after format 
+            var data = {wedge:[
+                                [{value:80, label:"A", color:"ffff00"},{value:150, label:"B", color:"00ff00"},{value:610, label:"C", color:"0000ff"}],
+                                [{value:90, label:"A", color:"ffff00"},{value:150, label:"B", color:"00ff00"},{value:150, label:"C", color:"0000ff"}],
+								[{value:100, label:"A", color:"ffff00"},{value:150, label:"B", color:"00ff00"},{value:780, label:"C", color:"0000ff"}],
+								[{value:110, label:"A", color:"ffff00"},{value:150, label:"B", color:"00ff00"},{value:100, label:"C", color:"0000ff"}],
+								[{value:120, label:"A", color:"ffff00"},{value:150, label:"B", color:"00ff00"},{value:250, label:"C", color:"ff0000"}]
+                              ],
+                        group:[{label:"G1"}, {label:"G2"}, {label:"G3"}, {label:"G4"}, {label:"G5"}],
+                        legend:[{label:"A",color:"ffff00"},{label:"B",color:"00ff00"},{label:"C",color:"0000ff"}]
+                        };
+            chart.render(data);
+    };
+</script>
+</head>
+<body style="background-color:#fff">
+        <div id="wrapper1">
+        </div>
+</body>
+</html>

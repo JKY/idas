@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Html5 Test</title>
+<link rel="stylesheet" type="text/css" href="../../../css/app.css"/>
+<script type="text/javascript" src="../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../../js/lib/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../js/lib/underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../js/func.util.js"></script>
+<script type="text/javascript" src="../canvas/html5/HTML5Canvas.js"></script>
+<script type="text/javascript" src="../b2.js"></script>
+<script type="text/javascript" src="../b2.common.js"></script>
+<script type="text/javascript" src="../b2.graphics.js"></script>
+<script type="text/javascript" src="../b2.evt.js"></script>
+<script type="text/javascript" src="../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../charts/b2.stack.js"></script>
+<script type="text/javascript" src="../charts/b2.line.js"></script>
+<script type="text/javascript" src="../charts/b2.pie.js"></script>
+<script type="text/javascript" src="../charts/b2.bar.js"></script>
+<script type="text/javascript" src="../charts/b2.bubble.js"></script>
+<script type="text/javascript" src="../charts/comp/slider.js"></script>
+
+</head>
+<body style="background-color: #fff;" style="width:1204px;height:800px">
+	<div id="piechart"></div>
+	<div id="linechart"></div>
+	<div id="stackchart"></div>
+	<div id="bubblechart"></div>
+	<div id="barchart"></div>
+	<div id="slider" style="width:500px;height:50px;"></div>
+	
+	<script type="text/javascript">
+	options_pie = {
+			  container:"piechart",
+			  type:"Pie",
+			  width:500,
+			  height:200,
+			  margin:[10,10,50,30],
+			  canvas:"HTML5"
+			};
+	
+	var options_bar = {
+			  container:"barchart",
+			  type:"Bar",
+			  width:500,
+			  height:200,
+			  margin:[10,10,50,30],
+			  canvas:"HTML5",
+			  slider: 'slider'
+	}
+	var options_stack = {
+			  container:"stackchart",
+			  type:"Stack",
+			  width:500,
+			  height:200,
+			  margin:[10,10,50,30],
+			  canvas:"HTML5"
+			};
+	
+	var options_bubble = {
+			  container:"bubblechart",
+			  type:"Bubble",
+			  width:500,
+			  height:200,
+			  margin:[10,10,50,30],
+			  canvas:"HTML5"
+			};
+	
+	var options_line = {
+			  container:"linechart",
+			  slider: 'slider',
+			  type:"Line",
+			  width:500,
+			  height:200,
+			  margin:[10,10,50,30],
+			  canvas:"HTML5"
+			};
+	
+	var data_line = [
+	            [200,500,"aaa"],
+	            [10,500,"bbb"],
+	            [300,500,"ccc"],
+	            [100,200,"ddd"],
+	            [300,700,"e"],
+	            [200,500,"aaa"],
+	            [10,500,"bbb"],
+	            [300,500,"ccc"],
+	            [100,200,"ddd"],
+	            [300,700,"e"],
+	            [300,700,"aaa"],
+	            [10,500,"bbb"]
+	            ];
+	
+	var data_bar = [
+	 	           [{label: 'A', value: 10,group:1}, {label: 'A', value: 20,group:1}],
+	 	           [{label: 'B', value: 10, group:2}, {label: 'B', value: 20, group:2}],
+	 	           [{label: 'C', value: 10,group:3}, {label: 'C', value: 20,group:3}],
+	 	           [{label: 'D', value: 10, group:4}, {label: 'D', value: 20, group:4}],
+	 	          [{label: 'A', value: 10,group:1}, {label: 'A', value: 20,group:1}],
+	 	           [{label: 'B', value: 10, group:2}, {label: 'B', value: 20, group:2}],
+	 	           [{label: 'C', value: 10,group:3}, {label: 'C', value: 20,group:3}],
+	 	           [{label: 'D', value: 10, group:4}, {label: 'D', value: 20, group:4}],
+	 	          [{label: 'A', value: 10,group:1}, {label: 'A', value: 20,group:1}],
+	 	           [{label: 'B', value: 10, group:2}, {label: 'B', value: 20, group:2}],
+	 	           [{label: 'C', value: 10,group:3}, {label: 'C', value: 20,group:3}],
+	 	           [{label: 'D', value: 10, group:4}, {label: 'D', value: 20, group:4}],
+	 	          [{label: 'A', value: 10,group:1}, {label: 'A', value: 20,group:1}],
+	 	           [{label: 'B', value: 10, group:2}, {label: 'B', value: 20, group:2}],
+	 	           [{label: 'C', value: 10,group:3}, {label: 'C', value: 20,group:3}],
+	 	           [{label: 'D', value: 10, group:4}, {label: 'D', value: 20, group:4}],
+	 	          [{label: 'A', value: 10,group:1}, {label: 'A', value: 20,group:1}],
+	 	           [{label: 'B', value: 10, group:2}, {label: 'B', value: 20, group:2}],
+	 	           [{label: 'C', value: 10,group:3}, {label: 'C', value: 20,group:3}],
+	 	           [{label: 'D', value: 10, group:4}, {label: 'D', value: 20, group:4}]
+	 	            ];
+	
+	var data_bubble = [
+	                   {x:44,y:11,r:111,label:'ffff'],
+	                   ["4545","222","322","eeee"],
+	                   ["3221","333","666","eeee"],
+	                   ["2121","444","222","gggg"],
+	                   ["222","555","111","hhhh"],
+	                   ["656","666","666","eeee"],
+	                   ["8786","777","666","aaaa"],
+	                   ["2345","888","222","REPUBLICAN"]
+	                   ];
+	
+	var data_pie = [
+	             [10, "a"],
+	             [20, "b"],
+	             [40, "c"],
+	             [30, "d"]
+	             ];
+	
+// 	for(var i=0; i<10000; i++) {
+// 		data_bubble.push([Math.random()*10000, Math.random()*10000, 4, 'a'+i]);
+// 	}
+	// line, stack
+// 	var b2 = new B2(options_pie, data_pie);
+	// bubble
+// 	var b2 = new B2(options, data_bubble);
+// 	b2.render();
+	var b2 = new B2(options_bubble);
+	b2.render({data: data_bubble});
+</script>
+</body>
+</html>

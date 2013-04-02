@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>line chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="../../b2.js"></script>
+<script type="text/javascript" src="../../b2.common.js"></script>
+<script type="text/javascript" src="../../b2.evt.js"></script>
+<script type="text/javascript" src="../../b2.graphics.js"></script>
+<script type="text/javascript" src="../../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../../canvas/html5/html5Canvas.js"></script>
+<script type="text/javascript" src="../../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../charts/b2.line.js"></script>
+<script type="text/javascript" src="../../charts/b2.legend.js"></script>
+<script type="text/javascript" src="../../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Line",
+			  	width: 500,
+                height: 300, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:200,
+                	height:400
+                },
+                slider: {
+                	width: '100%',
+                	height: 60
+                },
+			  	margin: [20,40,60,40],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            var bar1 = new B2(options);
+            //after format
+            var data = { lines:[
+            					{label:"AA",color:"ff0000",data:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]}
+                              ],
+                         xaxis:{label:"X",markers:["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14"]},
+                         yaxis:{label:"Y"},
+            			 legend:[{label:"AA",color:""},{label:"BB",color:""}]
+                       };
+//             for(var i=0;i<5;i+=0.1){
+//             	data.lines[0].data.push((Math.sin(i)*10).toFixed(2)*1);
+//             	data.xaxis.markers.push(i.toFixed(2));
+//             };
+            bar1.render(data);
+    };
+</script>
+</head>
+<body style="background-color:#fff">
+	<div style="width:500px">
+        <div id="wrapper1">
+        </div>
+    </div>
+</body>
+</html>

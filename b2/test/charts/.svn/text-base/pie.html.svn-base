@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pie chart</title>
+<script type="text/javascript" src="../../../jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../../../underscore-1.3.1.js"></script>
+<script type="text/javascript" src="../../../backbone.js"></script>
+<script type="text/javascript" src="../../b2.js"></script>
+<script type="text/javascript" src="../../b2.common.js"></script>
+<script type="text/javascript" src="../../b2.evt.js"></script>
+<script type="text/javascript" src="../../b2.graphics.js"></script>
+<script type="text/javascript" src="../../canvas/b2.canvas.js"></script>
+<script type="text/javascript" src="../../canvas/html5/html5Canvas.js"></script>
+<script type="text/javascript" src="../../canvas/swfobject.js"></script>
+<script type="text/javascript" src="../../charts/b2.chart.js"></script>
+<script type="text/javascript" src="../../charts/b2.pie.js"></script>
+<script type="text/javascript" src="../../charts/b2.legend.js"></script>
+<script type="text/javascript" src="../../charts/comp/slider.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+    	  var options = {
+            	container:"wrapper1",
+			  	"type":"Pie",
+			  	width: 500,
+                height: 300, 
+                legend:{
+                	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}},
+                	width:200,
+                	height:400
+                },
+			  	margin: [20,40,60,40],
+			  	canvas:{ platform:"Fl", param:{url:"../../canvas/fl/B2Canvas.swf"}}
+            };
+            var chart = new B2(options);
+            //after format 
+            var data = {wedge:[
+                                {value:10, label:"Group A", color:"ff0000"},
+                                {value:20, label:"Group B", color:"00ff00"},
+                                {value:5, label:"Group C", color:"0000ff"}
+                              ],
+                        legend:[{label:"AA",color:"ff0000"},{label:"AA",color:"0000ff"}]
+                        };
+            chart.render(data);
+    };
+</script>
+</head>
+<body style="background-color:#fff">
+        <div id="wrapper1">
+        </div>
+</body>
+</html>
